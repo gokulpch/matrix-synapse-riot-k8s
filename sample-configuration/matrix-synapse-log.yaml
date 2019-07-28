@@ -1,0 +1,31 @@
+apiVersion: v1
+data:
+  log.yaml: |
+    version: 1
+    formatters:
+      precise:
+       format: '%(asctime)s - %(name)s - %(lineno)d - %(levelname)s - %(request)s- %(message)s'
+    filters:
+      context:
+        (): synapse.util.logcontext.LoggingContextFilter
+        request: ""
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: precise
+        filters: [context]
+        level: INFO
+    loggers:
+        synapse:
+            level: INFO
+    root:
+        level: INFO
+        handlers: [console]
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2019-07-28T00:49:46Z"
+  name: matrix-synapse-log
+  namespace: matrix-test
+  resourceVersion: "9673"
+  selfLink: /api/v1/namespaces/matrix-test/configmaps/matrix-synapse-log
+  uid: 158e33c6-8fad-40ba-86e7-ae3bfcbd45ad

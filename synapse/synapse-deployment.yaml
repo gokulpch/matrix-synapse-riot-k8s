@@ -1,0 +1,65 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: matrix-synapse
+  labels:
+    app: matrix-synapse
+spec:
+  selector:
+    matchLabels:
+      app: matrix-synapse
+  template:
+    metadata:
+      labels:
+        app: matrix-synapse
+    spec:
+      volumes:
+        - name: matrix-synapse-data
+          emptyDir: {}
+        - name: matrix-synapse-tls
+          secret:
+            secretName: matrix-synapse-tls
+        - name: matrix-synapse-keys
+          secret:
+            secretName: matrix-synapse-key
+        - name: matrix-synapse-config
+          configMap:
+            name: matrix-synapse
+        - name: matrix-synapse-config-log
+          configMap:
+            name: matrix-synapse-log
+      containers:
+        - name: matrix-synapse
+          image: ananace/matrix-synapse:latest
+          volumeMounts:
+            - name: matrix-synapse-data
+              mountPath: /synapse/data
+            - name: matrix-synapse-config
+              mountPath: /synapse/config
+            - name: matrix-synapse-config-log
+              mountPath: /synapse/log
+            - name: matrix-synapse-keys
+              mountPath: /synapse/keys
+            - name: matrix-synapse-tls
+              mountPath: /synapse/tls
+          env:
+            - name: SYNAPSE_CACHE_FACTOR
+              value: '0.01'
+          resources:
+            requests:
+              memory: 250Mi
+              cpu: 250m
+            limits:
+              memory: 4Gi
+              cpu: 1
+          livenessProbe:
+            httpGet:
+              path: /_matrix/client/versions
+              port: 8008
+              scheme: HTTP
+          readinessProbe:
+            httpGet:
+              path: /_matrix/client/versions
+              port: 8008
+              scheme: HTTP

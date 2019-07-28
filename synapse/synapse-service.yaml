@@ -1,0 +1,36 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    app: matrix-synapse
+  name: matrix-synapse-replication
+spec:
+  ports:
+    - name: replication
+      protocol: TCP
+      port: 9092
+      targetPort: 9092
+  selector:
+    app: matrix-synapse
+  type: ClusterIP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    app: matrix-synapse
+  name: matrix-synapse
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8008
+      targetPort: 8008
+    - name: https
+      protocol: TCP
+      port: 8448
+      targetPort: 8448
+  selector:
+    app: matrix-synapse
+  type: ClusterIP

@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/tls-acme: 'true'
+  name: matrix-synapse
+spec:
+  rules:
+  - host: ves.riot.io
+    http:
+      paths:
+      - backend:
+          serviceName: matrix-synapse
+          servicePort: 8008
+        path: /
+  tls:
+  - hosts:
+    - ves.riot.io

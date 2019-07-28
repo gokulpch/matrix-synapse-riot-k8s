@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  ves.riot.io.signing.key: ZWQyNTUxOSBhX09SQ0IgZzF0aytiNnB2dXJua0Y3a2NWdXkwYnhvekdtZC9tVG5iMVlueDJJVHZLSQo=
+  ves.riot.io.tls.dh: MjA0OC1iaXQgREggcGFyYW1ldGVycyB0YWtlbiBmcm9tIHJmYzM1MjYKLS0tLS1CRUdJTiBESCBQQVJBTUVURVJTLS0tLS0KTUlJQkNBS0NBUUVBLy8vLy8vLy8vLy9KRDlxaUlXakNOTVRHWW91QTNCelJLUUpPQ0lwbnpIUUNDNzZtT3hPYgpJbEZLQ0htT05BVGQ3NVVaczgwNlF4c3dLd3B0OGw4VU4wL2hOVzF0VWNKRjVJVzFkbUplZnNiMFRFTHBwamZ0CmF3di9YTGIwQnJmdDdqaHIrMXFKbjZXdW55UVJmRXNmNWtrb1psSHM1RnM5d2dCOHVLRmp2d1dZMmtnMkhGWFQKbW1rV1A2ajlKTTlmZzJWZEk5eWpyWlljWXZOV0lJVlN1NTdWS1Fkd2xwWnRad3cxVGtxOG1BVHhkR3dJeWhnaApmREtRWGtZdU5zNDc0NTUzTEJnT2hnT2JKNE9pN0FlaWo3WEZYZkJ2VEZMSjNpdkw5cFZZRnhnNWxVbDg2cFZxCjVSWFNKaGlZK2dVUUZYS09Xb3FzcW1qLy8vLy8vLy8vL3dJQkFnPT0KLS0tLS1FTkQgREggUEFSQU1FVEVSUy0tLS0tCg==
+kind: Secret
+metadata:
+  creationTimestamp: "2019-07-28T00:51:42Z"
+  name: matrix-synapse-key
+  namespace: matrix-test
+  resourceVersion: "9816"
+  selfLink: /api/v1/namespaces/matrix-test/secrets/matrix-synapse-key
+  uid: 218d2f24-394a-4648-bcab-7d5bd4f91153
+type: Opaque
