@@ -2,6 +2,12 @@
 Secure Homeserver for Riot on Kubernetes
 
 
+![alt text](https://github.com/gokulpch/matrix-synapse-riot-k8s/blob/master/media/riot1.png)
+
+![alt text](https://github.com/gokulpch/matrix-synapse-riot-k8s/blob/master/media/riot2.png)
+
+![alt text](https://github.com/gokulpch/matrix-synapse-riot-k8s/blob/master/media/riot3.png)
+
 
 ### Generating Keys and Certs
 
